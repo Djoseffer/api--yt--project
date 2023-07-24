@@ -10,7 +10,7 @@ class UserRepository {
         pool.getConnection((error: any, connection: any) => {
             hash(password, 10, (err, hash) => {
                 if (err) {
-                    return response.status(500).json(error)
+                    return response.status(500).json(err)
                 }
 
                 connection.query(
