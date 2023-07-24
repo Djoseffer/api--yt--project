@@ -13,7 +13,7 @@ class UserRepository {
                 if (err) {
                     return response.status(500).json(error);
                 }
-                connection.query('INSERT INTO users (user_id, name, email, password ) VALUES (?,?,?,?)', [(0, uuid_1.v4)(), name, email, hash], (error, result, fileds) => {
+                connection.query('INSERT INTO users (user_id, name, email, password) VALUES (?,?,?,?)', [(0, uuid_1.v4)(), name, email, hash], (error, result, fileds) => {
                     connection.release();
                     if (error) {
                         return response.status(400).json(error);
