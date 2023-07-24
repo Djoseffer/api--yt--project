@@ -11,7 +11,7 @@ class UserRepository {
         mysql_1.pool.getConnection((error, connection) => {
             (0, bcrypt_1.hash)(password, 10, (err, hash) => {
                 if (err) {
-                    return response.status(500).json(error);
+                    return response.status(500).json(err);
                 }
                 connection.query('INSERT INTO users (user_id, name, email, password) VALUES (?,?,?,?)', [(0, uuid_1.v4)(), name, email, hash], (error, result, fileds) => {
                     connection.release();
